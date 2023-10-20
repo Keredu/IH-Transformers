@@ -9,6 +9,9 @@ COPY requirements.txt /workspace/requirements.txt
 
 RUN pip install -r requirements.txt
 
-# Command to run when the container starts
-CMD ["python", "-c", "import transformers; print(transformers.__version__)"]
+COPY scripts/cifar10_train.py /workspace/cifar10_train.py
 
+# Command to run when the container starts
+# CMD ["python", "-c", "import transformers; print(transformers.__version__)"]
+# CMD ["python", "cifar10_train.py"]
+CMD ["/bin/bash"]
